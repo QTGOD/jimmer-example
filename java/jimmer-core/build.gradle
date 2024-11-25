@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+ext {
+    jimmerVersion = "0.9.10"
+}
+
+group 'org.babyfish.jimmer.example.core'
+version jimmerVersion
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation "org.babyfish.jimmer:jimmer-core:${jimmerVersion}"
+    annotationProcessor "org.babyfish.jimmer:jimmer-apt:${jimmerVersion}"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,14 @@
+ext {
+    jimmerVersion = "0.9.10"
+
+    // Jimmer remote associations require ANTLR
+    antlrVersion = "4.13.1"
+
+    springBootVersion = "2.7.0"
+    springCloudVersion = "2021.0.3"
+}
+
+allprojects {
+    group = "org.babyfish.jimmer.example.cloud"
+    version = jimmerVersion
+}

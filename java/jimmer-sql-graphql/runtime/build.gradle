@@ -1,0 +1,30 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation project(":model")
+    implementation project(":repository")
+
+    // For RedisConnectionFactory and Redisson
+    implementation 'org.redisson:redisson-spring-boot-starter:3.17.4'
+
+    // For HttpServletRequest(javax or jakatra)
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+
+    // For @KafkaListener
+    implementation "org.springframework.kafka:spring-kafka:${springBootVersion}"
+
+    implementation 'org.apache.kafka:connect-api:0.10.0.0'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+

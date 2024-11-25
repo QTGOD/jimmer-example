@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: store-service
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:store-db;database_to_upper=true
+
+jimmer:
+  micro-service-name: ${spring.application.name}
+  show-sql: true
+  pretty-sql: true
+  executor-context-prefixes:
+    - org.babyfish.jimmer.example.cloud.store.StoreService
+  database-validation-mode: ERROR
+  client:
+    ts:
+      path: /store-service-ts.zip
+    openapi:
+      path: /openapi.yml
+      ui-path: /openapi.html
+      properties:
+        info:
+          title: Openapi of store-service
+          description: "`/store/{id}` accesses current service, `/store/{id}/detail` accesses all services"
+          version: "0.9.10"
+
+server:
+  port: 7001
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7000/eureka
